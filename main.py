@@ -29,9 +29,16 @@ while isValid < 1:
     for row in reader:
         print('{', end="")
         #need to find out if row is a int or string to determine if i need quotes
+
         for num in range(0, length):
-            if (num) == (length -1):
-               print (columns[num] + ": " "'" + row[num] + "'", end="")
+            if isinstance(row[num], float):
+                if (num) == (length -1):
+                    print (columns[num] + ": " + row[num], end="")
+                else:
+                    print (columns[num] + ": " + row[num], end="")
             else:
-               print (columns[num] + ": " "'" + row[num] + "',", end="")
+                if (num) == (length -1):
+                    print (columns[num] + ": " "'" + row[num] + "'", end="")
+                else:
+                    print (columns[num] + ": " "'" + row[num] + "',", end="")
         print('}')
